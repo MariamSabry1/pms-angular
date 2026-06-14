@@ -170,7 +170,7 @@ export class TasksComponent implements AfterViewInit, OnInit {
       if (result) {
         this._managerService.deleteTask(item.id).subscribe({
           next: () => {
-            this.toastr.success(`This Item is Delated Successfully`, '!Success' )
+            this.toastr.success(`Task deleted Successfully`, '!Success' )
             this.fetchData();
           },
           error: (err) => {

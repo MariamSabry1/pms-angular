@@ -5,11 +5,6 @@ export interface IUserscount {
   deactivatedEmployeeCount: number;
 }
 
-export interface ITasksCount {
-  toDo: number;
-  inProgress: number;
-  done: number;
-}
 export interface IProjectPayload {
   title: string;
   description: string;
@@ -23,20 +18,7 @@ export interface IProject {
   task: unknown[];
   manager: IManager;
 }
-export interface IManager {
-  id: number;
-  userName: string;
-  imagePath: string;
-  email: string;
-  password: string;
-  country: string;
-  phoneNumber: string;
-  verificationCode: string | null;
-  isVerified: boolean;
-  isActivated: boolean;
-  creationDate: string;
-  modificationDate: string;
-}
+
 export interface IResponse<T = unknown> {
   pageNumber: number;
   pageSize: number;
@@ -84,4 +66,10 @@ export interface IPerson {
   isActivated: boolean;
   creationDate: string;
   modificationDate: string;
+}
+export interface ITaskPayload {
+  title: string;
+  description: string;
+  employeeId: number;
+  projectId: number;
 }

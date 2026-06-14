@@ -1,0 +1,24 @@
+@use '../../../../../../assets/styles/table.scss';
+
+.status {
+  background-color: #315951e5;
+  border-radius: 16px;
+  padding: 6px 14px;
+  color: #fff;
+}
+
+.status.to-do {
+  background-color: #918f9f;
+}
+
+.status.in-progress {
+  background-color: #ef9b28a3;
+}
+
+.status.done {
+  background-color: #009247;
+}
+
+.custom-icon-color {
+  color: #009247 !important;
+}

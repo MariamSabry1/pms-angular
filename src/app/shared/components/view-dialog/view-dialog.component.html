@@ -1,0 +1,130 @@
+<h2 mat-dialog-title class="dialog-title">
+  {{ data.type | titlecase }} Details
+</h2>
+
+<mat-dialog-content class="dialog-content">
+
+  <!-- Header Card -->
+  <div class="top-card" *ngIf="data.type === 'user'">
+    <div class="title">
+      <span class="label">User Name:</span>
+      {{ data.item.userName }}
+    </div>
+
+    <div class="desc">
+      <span class="label">Email:</span>
+      {{ data.item.email }}
+    </div>
+  </div>
+
+  <div class="top-card" *ngIf="data.type !== 'user'">
+
+    <div class="title">
+      <span class="label">Title:</span>
+      {{ data.item.title }}
+    </div>
+
+    <div class="desc">
+      <span class="label">Description:</span>
+      {{ data.item.description }}
+    </div>
+
+  </div>
+
+  <!-- Info Grid  -->
+  <div [ngClass]="{
+    'info-grid': data.type === 'task' || data.type === 'project',
+    'd-flex flex-column flex-wrap gap-2': data.type === 'user'
+  }">
+
+    <!-- PROJECT  -->
+    <ng-container *ngIf="data.type === 'project'">
+
+      <div class="info-card">
+        <span class="label">Manager</span>
+        <span class="value">{{ data.item.manager?.userName }}</span>
+      </div>
+
+      <div class="info-card">
+        <span class="label">Email</span>
+        <span class="value">{{ data.item.manager?.email }}</span>
+      </div>
+
+      <div class="info-card">
+        <span class="label">Tasks</span>
+        <span class="value">{{ data.item.task?.length || 0 }}</span>
+      </div>
+
+    </ng-container>
+
+    <!-- TASK  -->
+    <ng-container *ngIf="data.type === 'task'">
+
+      <div class="info-card">
+        <span class="label">Status</span>
+        <span class="value">{{ data.item.status }}</span>
+      </div>
+
+      <div class="info-card">
+        <span class="label">Project</span>
+        <span class="value">{{ data.item.project?.title || 'N/A' }}</span>
+      </div>
+
+      <div class="info-card">
+        <span class="label">user</span>
+        <span class="value">{{ data.item.user?.userName || 'N/A' }}</span>
+      </div>
+
+    </ng-container>
+
+    <!-- user -->
+    <ng-container *ngIf="data.type === 'user'">
+      <div class="info-grid">
+        <div class="info-card">
+          <span class="label">Country:</span>
+          <span class="value">{{ data.item.country }}</span>
+        </div>
+
+        <div class="info-card">
+          <span class="label">Phone Number</span>
+          <span class="value">{{ data.item.phoneNumber }}</span>
+        </div>
+
+        <div class="info-card">
+          <span class="label">Tasks</span>
+          <span class="value">{{ data.item.task?.length }}</span>
+        </div>
+
+        <div class="info-card">
+          <span class="label">Status</span>
+          <span class="value">
+            {{ data.item.isActivated ? 'Active' : 'Inactive' }}
+          </span>
+        </div>
+      </div>
+
+    </ng-container>
+    <!-- COMMON -->
+    <div class="info-card" *ngIf="data.type !== 'user'">
+      <span class="label">Created</span>
+      <span class="value">
+        {{ data.item.creationDate | date:'mediumDate' }}
+      </span>
+    </div>
+
+    <div class="info-card" *ngIf="data.type !== 'user'">
+      <span class="label">Updated</span>
+      <span class="value">
+        {{ data.item.modificationDate | date:'mediumDate' }}
+      </span>
+    </div>
+
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" mat-dialog-close>
+    Close
+  </button>
+</mat-dialog-actions>

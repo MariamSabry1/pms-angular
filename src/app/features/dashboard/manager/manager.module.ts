@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ManagerRoutingModule } from './manager-routing.module';
 import { ManagerComponent } from './manager.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { A11yModule } from "@angular/cdk/a11y";
-import { AddEditProjectsComponent } from './projects/components/add-edit-projects/add-edit-projects.component';
+import { A11yModule } from '@angular/cdk/a11y';
+import { AddEditProjectsComponent } from './modules/projects/components/add-edit-projects/add-edit-projects.component';
 
 
 @NgModule({
@@ -21,4 +21,4 @@ import { AddEditProjectsComponent } from './projects/components/add-edit-project
     A11yModule
 ]
 })
-export class ManagerModule {}
+export class ManagerModule { }

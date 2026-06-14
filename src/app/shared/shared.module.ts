@@ -9,7 +9,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthHeaderComponent } from './components/auth-header/auth-header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { HeaderComponent } from './components/Layout/header/header.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,6 +27,13 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FileDropComponent } from './components/file-drop/file-drop.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BlockUserComponent } from './components/block-user/block-user.component';
 
 const shared = [
   CommonModule,
@@ -47,13 +53,16 @@ const shared = [
   MatPaginatorModule,
   MatSortModule,
   MatTableModule,
+  NgxFileDropModule,
+  DragDropModule,
+  NgxFileDropModule,
+  MatDialogModule,
 ];
 
 @NgModule({
   declarations: [
     NotFoundPageComponent,
     AuthHeaderComponent,
-    ChangePasswordComponent,
     HeaderComponent,
     SidebarComponent,
     StaticsCardComponent,
@@ -62,13 +71,16 @@ const shared = [
     LoaderComponent,
     EmptyStatusComponent,
     UsersChartComponent,
+    ChangePasswordComponent,
+    ProfileComponent,
+    FileDropComponent,
+    BlockUserComponent,
   ],
 
   imports: [shared, RouterModule],
   exports: [
     shared,
     AuthHeaderComponent,
-    ChangePasswordComponent,
     HeaderComponent,
     SidebarComponent,
     StaticsCardComponent,
@@ -77,6 +89,10 @@ const shared = [
     LoaderComponent,
     EmptyStatusComponent,
     UsersChartComponent,
+    ChangePasswordComponent,
+    ProfileComponent,
+    FileDropComponent,
+    BlockUserComponent,
   ],
 })
 export class SharedModule {}
